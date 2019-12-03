@@ -7,9 +7,49 @@
 //
 
 #include <iostream>
+#include <boost/asio.hpp>
+
+
+using namespace boost;
+using boost::asio::ip::tcp;
+
+class RpcManager {
+    
+    
+public:
+    RpcManager(asio::io_context &io_context, const asio::ip::tcp::endpoint &endpoint): acceptor_(io_context, endpoint)
+    {
+        do_accept();
+    }
+private:
+    void do_accept()
+    {
+        
+        
+        
+    }
+    
+    tcp::acceptor acceptor_;
+    
+};
+
+
+
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     return 0;
 }

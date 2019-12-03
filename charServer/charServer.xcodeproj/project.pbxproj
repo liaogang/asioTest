@@ -7,21 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		186B243323963BDA00D5DB38 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 186B243223963BDA00D5DB38 /* main.cpp */; };
-		186B24462396401D00D5DB38 /* chat_client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 186B24452396401D00D5DB38 /* chat_client.cpp */; };
+		186B245C2396411F00D5DB38 /* chat_server.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 186B245B2396411F00D5DB38 /* chat_server.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		186B242D23963BDA00D5DB38 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-		186B243B2396400100D5DB38 /* CopyFiles */ = {
+		186B244E239640F200D5DB38 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -33,22 +23,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		186B242F23963BDA00D5DB38 /* asioTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = asioTest; sourceTree = BUILT_PRODUCTS_DIR; };
-		186B243223963BDA00D5DB38 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		186B243D2396400100D5DB38 /* chatEcho */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = chatEcho; sourceTree = BUILT_PRODUCTS_DIR; };
-		186B24442396401D00D5DB38 /* chat_message.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = chat_message.hpp; sourceTree = "<group>"; };
-		186B24452396401D00D5DB38 /* chat_client.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = chat_client.cpp; sourceTree = "<group>"; };
+		186B2450239640F200D5DB38 /* charServer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = charServer; sourceTree = BUILT_PRODUCTS_DIR; };
+		186B245A2396411F00D5DB38 /* chat_message.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = chat_message.hpp; sourceTree = "<group>"; };
+		186B245B2396411F00D5DB38 /* chat_server.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = chat_server.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		186B242C23963BDA00D5DB38 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		186B243A2396400100D5DB38 /* Frameworks */ = {
+		186B244D239640F200D5DB38 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -58,96 +39,66 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		186B242623963BDA00D5DB38 = {
+		186B2447239640F200D5DB38 = {
 			isa = PBXGroup;
 			children = (
-				186B243123963BDA00D5DB38 /* asioTest */,
-				186B243E2396400100D5DB38 /* chatEcho */,
-				186B243023963BDA00D5DB38 /* Products */,
+				186B2452239640F200D5DB38 /* charServer */,
+				186B2451239640F200D5DB38 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		186B243023963BDA00D5DB38 /* Products */ = {
+		186B2451239640F200D5DB38 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				186B242F23963BDA00D5DB38 /* asioTest */,
-				186B243D2396400100D5DB38 /* chatEcho */,
+				186B2450239640F200D5DB38 /* charServer */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		186B243123963BDA00D5DB38 /* asioTest */ = {
+		186B2452239640F200D5DB38 /* charServer */ = {
 			isa = PBXGroup;
 			children = (
-				186B243223963BDA00D5DB38 /* main.cpp */,
+				186B245A2396411F00D5DB38 /* chat_message.hpp */,
+				186B245B2396411F00D5DB38 /* chat_server.cpp */,
 			);
-			path = asioTest;
-			sourceTree = "<group>";
-		};
-		186B243E2396400100D5DB38 /* chatEcho */ = {
-			isa = PBXGroup;
-			children = (
-				186B24452396401D00D5DB38 /* chat_client.cpp */,
-				186B24442396401D00D5DB38 /* chat_message.hpp */,
-			);
-			path = chatEcho;
+			path = charServer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		186B242E23963BDA00D5DB38 /* asioTest */ = {
+		186B244F239640F200D5DB38 /* charServer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 186B243623963BDA00D5DB38 /* Build configuration list for PBXNativeTarget "asioTest" */;
+			buildConfigurationList = 186B2457239640F200D5DB38 /* Build configuration list for PBXNativeTarget "charServer" */;
 			buildPhases = (
-				186B242B23963BDA00D5DB38 /* Sources */,
-				186B242C23963BDA00D5DB38 /* Frameworks */,
-				186B242D23963BDA00D5DB38 /* CopyFiles */,
+				186B244C239640F200D5DB38 /* Sources */,
+				186B244D239640F200D5DB38 /* Frameworks */,
+				186B244E239640F200D5DB38 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = asioTest;
-			productName = asioTest;
-			productReference = 186B242F23963BDA00D5DB38 /* asioTest */;
-			productType = "com.apple.product-type.tool";
-		};
-		186B243C2396400100D5DB38 /* chatEcho */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 186B24412396400100D5DB38 /* Build configuration list for PBXNativeTarget "chatEcho" */;
-			buildPhases = (
-				186B24392396400100D5DB38 /* Sources */,
-				186B243A2396400100D5DB38 /* Frameworks */,
-				186B243B2396400100D5DB38 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = chatEcho;
-			productName = chatEcho;
-			productReference = 186B243D2396400100D5DB38 /* chatEcho */;
+			name = charServer;
+			productName = charServer;
+			productReference = 186B2450239640F200D5DB38 /* charServer */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		186B242723963BDA00D5DB38 /* Project object */ = {
+		186B2448239640F200D5DB38 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = apple;
 				TargetAttributes = {
-					186B242E23963BDA00D5DB38 = {
-						CreatedOnToolsVersion = 11.2;
-					};
-					186B243C2396400100D5DB38 = {
+					186B244F239640F200D5DB38 = {
 						CreatedOnToolsVersion = 11.2;
 					};
 				};
 			};
-			buildConfigurationList = 186B242A23963BDA00D5DB38 /* Build configuration list for PBXProject "asioTest" */;
+			buildConfigurationList = 186B244B239640F200D5DB38 /* Build configuration list for PBXProject "charServer" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -155,38 +106,29 @@
 				en,
 				Base,
 			);
-			mainGroup = 186B242623963BDA00D5DB38;
-			productRefGroup = 186B243023963BDA00D5DB38 /* Products */;
+			mainGroup = 186B2447239640F200D5DB38;
+			productRefGroup = 186B2451239640F200D5DB38 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				186B242E23963BDA00D5DB38 /* asioTest */,
-				186B243C2396400100D5DB38 /* chatEcho */,
+				186B244F239640F200D5DB38 /* charServer */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		186B242B23963BDA00D5DB38 /* Sources */ = {
+		186B244C239640F200D5DB38 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				186B243323963BDA00D5DB38 /* main.cpp in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		186B24392396400100D5DB38 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				186B24462396401D00D5DB38 /* chat_client.cpp in Sources */,
+				186B245C2396411F00D5DB38 /* chat_server.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		186B243423963BDA00D5DB38 /* Debug */ = {
+		186B2455239640F200D5DB38 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -245,7 +187,7 @@
 			};
 			name = Debug;
 		};
-		186B243523963BDA00D5DB38 /* Release */ = {
+		186B2456239640F200D5DB38 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -297,7 +239,7 @@
 			};
 			name = Release;
 		};
-		186B243723963BDA00D5DB38 /* Debug */ = {
+		186B2458239640F200D5DB38 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -305,23 +247,7 @@
 			};
 			name = Debug;
 		};
-		186B243823963BDA00D5DB38 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		186B24422396400100D5DB38 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		186B24432396400100D5DB38 /* Release */ = {
+		186B2459239640F200D5DB38 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -332,34 +258,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		186B242A23963BDA00D5DB38 /* Build configuration list for PBXProject "asioTest" */ = {
+		186B244B239640F200D5DB38 /* Build configuration list for PBXProject "charServer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				186B243423963BDA00D5DB38 /* Debug */,
-				186B243523963BDA00D5DB38 /* Release */,
+				186B2455239640F200D5DB38 /* Debug */,
+				186B2456239640F200D5DB38 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		186B243623963BDA00D5DB38 /* Build configuration list for PBXNativeTarget "asioTest" */ = {
+		186B2457239640F200D5DB38 /* Build configuration list for PBXNativeTarget "charServer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				186B243723963BDA00D5DB38 /* Debug */,
-				186B243823963BDA00D5DB38 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		186B24412396400100D5DB38 /* Build configuration list for PBXNativeTarget "chatEcho" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				186B24422396400100D5DB38 /* Debug */,
-				186B24432396400100D5DB38 /* Release */,
+				186B2458239640F200D5DB38 /* Debug */,
+				186B2459239640F200D5DB38 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 186B242723963BDA00D5DB38 /* Project object */;
+	rootObject = 186B2448239640F200D5DB38 /* Project object */;
 }
