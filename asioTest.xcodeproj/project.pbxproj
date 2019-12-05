@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		186B243323963BDA00D5DB38 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 186B243223963BDA00D5DB38 /* main.cpp */; };
 		186B24462396401D00D5DB38 /* chat_client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 186B24452396401D00D5DB38 /* chat_client.cpp */; };
+		18C1D0482398FBFE00E38D0D /* rpccall.proto in Sources */ = {isa = PBXBuildFile; fileRef = 18C1D0442398FBFE00E38D0D /* rpccall.proto */; };
+		18C1D0492398FBFE00E38D0D /* rpccall.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 18C1D0452398FBFE00E38D0D /* rpccall.pb.cc */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,6 +40,10 @@
 		186B243D2396400100D5DB38 /* chatEcho */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = chatEcho; sourceTree = BUILT_PRODUCTS_DIR; };
 		186B24442396401D00D5DB38 /* chat_message.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = chat_message.hpp; sourceTree = "<group>"; };
 		186B24452396401D00D5DB38 /* chat_client.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = chat_client.cpp; sourceTree = "<group>"; };
+		18C1D0442398FBFE00E38D0D /* rpccall.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = rpccall.proto; sourceTree = "<group>"; };
+		18C1D0452398FBFE00E38D0D /* rpccall.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rpccall.pb.cc; sourceTree = "<group>"; };
+		18C1D0462398FBFE00E38D0D /* rpccall.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rpccall.pb.h; sourceTree = "<group>"; };
+		18C1D0472398FBFE00E38D0D /* build */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = build; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +86,10 @@
 			isa = PBXGroup;
 			children = (
 				186B243223963BDA00D5DB38 /* main.cpp */,
+				18C1D0472398FBFE00E38D0D /* build */,
+				18C1D0462398FBFE00E38D0D /* rpccall.pb.h */,
+				18C1D0452398FBFE00E38D0D /* rpccall.pb.cc */,
+				18C1D0442398FBFE00E38D0D /* rpccall.proto */,
 			);
 			path = asioTest;
 			sourceTree = "<group>";
@@ -171,6 +181,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18C1D0492398FBFE00E38D0D /* rpccall.pb.cc in Sources */,
+				18C1D0482398FBFE00E38D0D /* rpccall.proto in Sources */,
 				186B243323963BDA00D5DB38 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -236,11 +248,16 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = /usr/local/Cellar/boost/1.71.0/include;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/Cellar/boost/1.71.0/include,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-lprotobuf";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -289,10 +306,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = /usr/local/Cellar/boost/1.71.0/include;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/Cellar/boost/1.71.0/include,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-lprotobuf";
 				SDKROOT = macosx;
 			};
 			name = Release;

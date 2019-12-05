@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+//import "cdn.proto";
+
+
+message RPCTask{
+    uint64 sequence = 1; //序列号
+    string uri = 2;
+    string cgiName = 3;
+    uint32 channelType = 4;//长连接->2,短连接->1,both->3
+    uint32 uicgi = 5;//对应长连接里的report_arg
+    string host = 6;
+    bytes payloadData = 7;
+    uint32 cmdid = 8;//长连接会用到,相当于短连接的cgi
+    uint32 isPush = 10; //手机端主动发送到电脑的Push消息，电脑收到之后应同步消息
+}
+
+
+message RPCCall
+{
+    uint32 sequence  = 1; //序列号
+    string name = 2;
+    map<string,string> params = 3;
+    bytes data = 4;
+    string str = 5;
+    map<string,uint64> params2 = 6;
+    bytes data2 = 7;
+    string str2 = 8;
+    bytes data3 = 10;
+//    CDNTask cdnTask = 11;
+    bytes data4 = 12;
+//    CdnTaskResult cdnTaskResult = 13;
+    uint32 uint32Param = 14;
+}
+
+
+message DeviceInfo
+{
+    string groupName = 1;
+    string deviceName = 2;
+}
