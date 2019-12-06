@@ -12,7 +12,7 @@
 #include <boost/asio.hpp>
 #include <map>
 #include <deque>
-
+#include <boost/bind.hpp>
 
 typedef void (*RPCCompleteHandler)(RPCCall*);
 
@@ -48,10 +48,10 @@ public:
                 
                 if (length == 4) {
                     printf("read head ok: %lu\n", length);
-                    
-                    
+
                     //decode header
                     uint32_t body_length = ntohl(this->header_buf_);
+
                     do_read_body(body_length);
                     
                 }else{
@@ -67,30 +67,36 @@ public:
     {
         printf("to read body of length: %d \n", body_length);
         
-        auto self(shared_from_this());
-        
-        body_buf_.resize(body_length);
-        
-        asio::async_read(socket_, asio::buffer(body_buf_), [this, self](boost::system::error_code ec, std::size_t length) {
+        if (body_length == 0) {
+            //this is beartbeat
+            do_read_header();
+        }else{
             
-            if (ec) {
-            }else{
+            auto self(shared_from_this());
+            
+            body_buf_.resize(body_length);
+            
+            asio::async_read(socket_, asio::buffer(body_buf_), [this, self](boost::system::error_code ec, std::size_t length) {
                 
-                if (length == this->body_buf_.length()) {
-                    printf("read body ok: %lu\n", length);
-                    
-                    
-                    this->did_receive_rpc( this->body_buf_ );
-                    this->body_buf_.clear();
-                    
+                if (ec) {
                 }else{
-                    printf("read body failed.\n");
+                    
+                    if (length == this->body_buf_.length()) {
+                        printf("read body ok: %lu\n", length);
+                        
+                        this->did_receive_rpc( this->body_buf_ );
+                        this->body_buf_.clear();
+                        
+                    }else{
+                        printf("read body failed.\n");
+                    }
+                    
+                    
+                    do_read_header();
                 }
-
                 
-            }
-            
-        });
+            });
+        }
         
     }
     
@@ -104,12 +110,34 @@ public:
             printf("接收到鉴定: %s \n",  deviceInfo.DebugString().c_str());
             
             deviceName_ = deviceInfo.devicename();
+            
+            
+            //just test
+            this->getRPCHandler()->rqt2( [](RPCCall *rpc){
+                printf("wow! \n");
+            });
+            
         }
         else{
             RPCCall rpccall;
             rpccall.ParseFromString(data);
             
             printf("接收到服务器消息: %s \n",  rpccall.DebugString().c_str() );
+            
+            uint32_t sequence = rpccall.sequence();
+            
+            if (uncompleteHandler_.count(sequence) > 0) {
+                
+                auto callback = uncompleteHandler_[sequence];
+                
+                callback(&rpccall);
+
+            }else{
+                printf("unhandlered server rpc back. \n");
+            }
+            
+            
+            
         }
         
     }
@@ -124,9 +152,12 @@ public:
     {
         uint32_t sequence = genSequence();
         rpc.set_sequence(sequence);
-        uncompleteHandler_[sequence] = OnRpcBack;
         
-        int body_length = rpc.GetCachedSize();
+//        auto b = boost::bind<void(RPCCall*)>(<#F f#>, <#A1 a1#>)
+        
+        uncompleteHandler_[sequence] = OnRpcBack;
+
+        unsigned int body_length = (unsigned int)rpc.ByteSizeLong();
 
         uint32_t head;
         head = htonl(body_length);
@@ -185,7 +216,9 @@ private:
     uint32_t sequence_;
     
     RPCHandler* rpcHandler_;
-    std::map<uint32_t, boost::function<void(RPCCall*)>> uncompleteHandler_;
+    
+    std::map<uint32_t, std::function<void(RPCCall*)>> uncompleteHandler_;
+
     std::deque<std::string> write_deque_;
 };
 

@@ -26,7 +26,7 @@ public:
     }
 //    void rqt(std::string md5, RPCCompleteHandler &handler);
 
-    void rqt2(boost::function<void(RPCCall*)> OnRqtBack);
+    void rqt2(boost::function<void(RPCCall*)> onRqtBack);
 
     
 private:

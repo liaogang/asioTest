@@ -11,15 +11,14 @@
 #include <functional>
 #include "RpcDeviceChannel.hpp"
 
-void RPCHandler::rqt2(boost::function<void(RPCCall*)> OnRqtBack)
+void RPCHandler::rqt2(boost::function<void(RPCCall*)> onRqtBack)
 {
     RPCCall rpc;
     rpc.set_name("rqt");
-    rpc.set_str("md5");
+    rpc.set_str("0248b8e92765f4ca24246014a1cb3087");
  
-    
-    deviceChannel_->sendRPC(rpc, [](RPCCall* rpcback){
-        
+    deviceChannel_->sendRPC(rpc, [onRqtBack](RPCCall* rpcback){
+        onRqtBack(rpcback);
     });
     
 }
