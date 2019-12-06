@@ -11,6 +11,7 @@
 		186B24462396401D00D5DB38 /* chat_client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 186B24452396401D00D5DB38 /* chat_client.cpp */; };
 		18C1D0482398FBFE00E38D0D /* rpccall.proto in Sources */ = {isa = PBXBuildFile; fileRef = 18C1D0442398FBFE00E38D0D /* rpccall.proto */; };
 		18C1D0492398FBFE00E38D0D /* rpccall.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 18C1D0452398FBFE00E38D0D /* rpccall.pb.cc */; };
+		18C1D04C239902AD00E38D0D /* RPCHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18C1D04A239902AC00E38D0D /* RPCHandler.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,6 +45,10 @@
 		18C1D0452398FBFE00E38D0D /* rpccall.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rpccall.pb.cc; sourceTree = "<group>"; };
 		18C1D0462398FBFE00E38D0D /* rpccall.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rpccall.pb.h; sourceTree = "<group>"; };
 		18C1D0472398FBFE00E38D0D /* build */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = build; sourceTree = "<group>"; };
+		18C1D04A239902AC00E38D0D /* RPCHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RPCHandler.cpp; sourceTree = "<group>"; };
+		18C1D04B239902AD00E38D0D /* RPCHandler.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RPCHandler.hpp; sourceTree = "<group>"; };
+		18C1D04E2399EC9C00E38D0D /* RpcDeviceChannel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RpcDeviceChannel.hpp; sourceTree = "<group>"; };
+		18C1D04F2399ECB100E38D0D /* RpcManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RpcManager.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +91,10 @@
 			isa = PBXGroup;
 			children = (
 				186B243223963BDA00D5DB38 /* main.cpp */,
+				18C1D04B239902AD00E38D0D /* RPCHandler.hpp */,
+				18C1D04A239902AC00E38D0D /* RPCHandler.cpp */,
+				18C1D04E2399EC9C00E38D0D /* RpcDeviceChannel.hpp */,
+				18C1D04F2399ECB100E38D0D /* RpcManager.hpp */,
 				18C1D0472398FBFE00E38D0D /* build */,
 				18C1D0462398FBFE00E38D0D /* rpccall.pb.h */,
 				18C1D0452398FBFE00E38D0D /* rpccall.pb.cc */,
@@ -183,6 +192,7 @@
 			files = (
 				18C1D0492398FBFE00E38D0D /* rpccall.pb.cc in Sources */,
 				18C1D0482398FBFE00E38D0D /* rpccall.proto in Sources */,
+				18C1D04C239902AD00E38D0D /* RPCHandler.cpp in Sources */,
 				186B243323963BDA00D5DB38 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
