@@ -14,6 +14,7 @@
 #include <boost/function.hpp>
 #include "rpccall.pb.h"
 
+
 class RpcDeviceChannel;
 
 class RPCHandler
@@ -24,9 +25,9 @@ public:
     {
         
     }
-//    void rqt(std::string md5, RPCCompleteHandler &handler);
 
-    void rqt2(boost::function<void(RPCCall*)> onRqtBack);
+    void rqt(boost::function<void(RPCCall*)> onRqtBack);
+    
 
     
 private:

@@ -63,6 +63,31 @@ public:
         
     }
     
+
+
+    
+    void sendRPC(RPCCall &rpc, boost::function<void(RPCCall*)> OnRpcBack)
+    {
+        uint32_t sequence = genSequence();
+        rpc.set_sequence(sequence);
+
+        uncompleteHandler_[sequence] = OnRpcBack;
+
+        unsigned int body_length = (unsigned int)rpc.ByteSizeLong();
+
+        uint32_t head;
+        head = htonl(body_length);
+        
+        std::string data((char*)&head, 4);
+        data.append(rpc.SerializeAsString());
+        
+        write_data(data);
+    }
+    
+
+    
+private:
+    
     void do_read_body(uint32_t body_length)
     {
         printf("to read body of length: %d \n", body_length);
@@ -113,7 +138,7 @@ public:
             
             
             //just test
-            this->getRPCHandler()->rqt2( [](RPCCall *rpc){
+            this->getRPCHandler()->rqt( [](RPCCall *rpc){
                 printf("wow! \n");
             });
             
@@ -135,39 +160,17 @@ public:
             }else{
                 printf("unhandlered server rpc back. \n");
             }
-            
-            
-            
+
         }
         
     }
-
+    
+    
     uint32_t genSequence(void)
     {
         sequence_++;
         return sequence_;
     }
-    
-    void sendRPC(RPCCall &rpc, boost::function<void(RPCCall*)> OnRpcBack)
-    {
-        uint32_t sequence = genSequence();
-        rpc.set_sequence(sequence);
-        
-//        auto b = boost::bind<void(RPCCall*)>(<#F f#>, <#A1 a1#>)
-        
-        uncompleteHandler_[sequence] = OnRpcBack;
-
-        unsigned int body_length = (unsigned int)rpc.ByteSizeLong();
-
-        uint32_t head;
-        head = htonl(body_length);
-        
-        std::string data((char*)&head, 4);
-        data.append(rpc.SerializeAsString());
-        
-        write_data(data);
-    }
-    
     
     void write_data(std::string &data)
     {
@@ -205,7 +208,7 @@ public:
         });
     }
     
-private:
+    
     asio::io_context &io_context_;
     tcp::socket socket_;
     std::string deviceName_;
